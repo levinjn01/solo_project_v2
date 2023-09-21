@@ -22,6 +22,17 @@ module.exports = {
         hot: true, //hot reloading
         compress: true, //gzip compression?
         // historyApiFallback: true
+        headers: { 'Access-Control-Allow-Origin': '*' },
+        // proxy: {
+        //     '/**': {
+        //       target: 'http://localhost:3000/',
+        //       secure: false,
+        //     },
+            // '/assets/**': {
+            //   target: 'http://localhost:3000/',
+            //   secure: false,
+            // },
+        //   },
     },
     module: {
         rules: [

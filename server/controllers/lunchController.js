@@ -6,13 +6,13 @@ const lunchController = {};
 
 //GET function - retrieves a randomized restaurant from the total array and adds it to local storage
 lunchController.getLunch = (req, res, next) => {
-    const text = 'SELECT id=1 FROM restaurants';
+    const text = 'SELECT * FROM restaurants';
+    const random = Math.floor(Math.random() * 3)
 
     db
     .query(text)
     .then(result => {
-        res.locals.lunch = result; //***need to find out what result is so I can filter it
-        console.log('this is the query result', result)
+        res.locals.lunch = result.rows[random]; // this is an object
         next();
     })
     .catch(err => next({

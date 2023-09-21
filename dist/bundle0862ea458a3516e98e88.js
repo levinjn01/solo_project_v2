@@ -2,23 +2,6 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/joke.js":
-/*!*********************!*\
-  !*** ./src/joke.js ***!
-  \*********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-function generateJoke() {
-  return 'thank you for smoking';
-}
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (generateJoke);
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/main.scss":
 /*!***********************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/main.scss ***!
@@ -527,16 +510,6 @@ function styleTagTransform(css, styleElement) {
 }
 module.exports = styleTagTransform;
 
-/***/ }),
-
-/***/ "./src/assets/sg.png":
-/*!***************************!*\
-  !*** ./src/assets/sg.png ***!
-  \***************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-module.exports = __webpack_require__.p + "sg.png";
-
 /***/ })
 
 /******/ 	});
@@ -590,18 +563,6 @@ module.exports = __webpack_require__.p + "sg.png";
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/global */
-/******/ 	(() => {
-/******/ 		__webpack_require__.g = (function() {
-/******/ 			if (typeof globalThis === 'object') return globalThis;
-/******/ 			try {
-/******/ 				return this || new Function('return this')();
-/******/ 			} catch (e) {
-/******/ 				if (typeof window === 'object') return window;
-/******/ 			}
-/******/ 		})();
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -618,29 +579,6 @@ module.exports = __webpack_require__.p + "sg.png";
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/publicPath */
-/******/ 	(() => {
-/******/ 		var scriptUrl;
-/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
-/******/ 		var document = __webpack_require__.g.document;
-/******/ 		if (!scriptUrl && document) {
-/******/ 			if (document.currentScript)
-/******/ 				scriptUrl = document.currentScript.src;
-/******/ 			if (!scriptUrl) {
-/******/ 				var scripts = document.getElementsByTagName("script");
-/******/ 				if(scripts.length) {
-/******/ 					var i = scripts.length - 1;
-/******/ 					while (i > -1 && !scriptUrl) scriptUrl = scripts[i--].src;
-/******/ 				}
-/******/ 			}
-/******/ 		}
-/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
-/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
-/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
-/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
-/******/ 		__webpack_require__.p = scriptUrl;
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/nonce */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nc = undefined;
@@ -654,20 +592,49 @@ var __webpack_exports__ = {};
   !*** ./src/index.js ***!
   \**********************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _joke__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./joke */ "./src/joke.js");
-/* harmony import */ var _styles_main_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/main.scss */ "./src/styles/main.scss");
-/* harmony import */ var _assets_sg_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./assets/sg.png */ "./src/assets/sg.png");
+/* harmony import */ var _styles_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/main.scss */ "./src/styles/main.scss");
 //this is the main file that webpack looks to to create the bundle
 
+// import fetch from 'node-fetch';
+// import sg from './assets/sg.png';
 
+// const sweetgreen = document.getElementById('sweetgreen');
+// sweetgreen.src = sg;
 
-// import server from '../server/server';
+var name = document.getElementById('name');
+var address = document.getElementById('address');
+var hours = document.getElementById('hours');
+var button = document.querySelector('button');
 
-var sweetgreen = document.getElementById('sweetgreen');
-sweetgreen.src = _assets_sg_png__WEBPACK_IMPORTED_MODULE_2__;
-console.log((0,_joke__WEBPACK_IMPORTED_MODULE_0__["default"])());
+// const getRestaurantwhenClicked = async () => {
+// await fetch('http://localhost:8080/getlunch', {
+//     method: 'GET',
+//     mode: 'no-cors'
+// })
+//     // .then(response => response.json())
+//     .then(data => console.log(data))
+//     .catch(err => console.log(err))
+// }
+
+function fetcher() {
+  console.log('fetcher is running');
+  fetch('http://localhost:8080/getlunch', {
+    method: 'GET',
+    // accept: '*/*',
+    mode: 'no-cors'
+  }).then(function (data) {
+    return data.json();
+  }).then(function (data) {
+    return console.log(data);
+  })["catch"](function (err) {
+    return console.log('this is the error', err);
+  });
+}
+fetcher();
+// console.log(response);
+// button.onclick = getRestaurantwhenClicked;
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=bundled4f9ab0d8bf0f5679744.js.map
+//# sourceMappingURL=bundle0862ea458a3516e98e88.js.map

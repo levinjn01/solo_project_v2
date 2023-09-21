@@ -2,16 +2,17 @@
 const path = require('path');
 const express = require('express');
 const app = express();
-// const apiRouter = require('./routes/api');
 const lunchController = require('./controllers/lunchController');
+// const fetch = require('fetch');
+const cors = require('cors');
 
-const PORT = 3000;
+const PORT = 8080;
 
 /**
  * handle parsing request body
  */
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
 
 /**
  * handle requests for static files: CSS, JS, images
@@ -23,8 +24,22 @@ app.use(express.urlencoded({ extended: true }));
  */
 
 app.get('/getlunch', lunchController.getLunch, (req, res) => {
-    console.log('you reached the getlunch ')
+    console.log('you reached the getlunch server endpoint');
+    return res.status(200).json(res.locals.lunch);
 });
+
+// app.get('/getlunch', (req, res) => {
+//   fetch('http://localhost:8080/getlunch', {
+//         method: 'GET',
+//         // accept: '*/*',
+//         mode: 'no-cors'
+//     })
+//     .then(data => data.json())
+//     .then(data => console.log(data))
+//     .catch(err => console.log('this is the error', err));
+
+//   return res.status(200).send('A string');
+// })
 
 // catch-all route handler for any requests to an unknown route
 app.use((req, res) => res.status(404).send('This is not the page you\'re looking for...'));
