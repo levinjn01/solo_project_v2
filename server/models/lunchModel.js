@@ -12,7 +12,7 @@ const pool = new Pool({
 //exporting object with query function that logs the text of the SQL query and returns everything
 module.exports = {
     query: (text, params, callback) => {
-        console.log('executed query', text);
+        // console.log('executed query', text);
         return pool.query(text, params, callback);
     }
   };

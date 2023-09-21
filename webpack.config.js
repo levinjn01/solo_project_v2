@@ -17,22 +17,22 @@ module.exports = {
         static: {
             directory: path.resolve(__dirname, 'dist') //files we're serving to the FE
         },
-        port: 3000,
+        port: 8080,
         open: true, //opens browser automatically
         hot: true, //hot reloading
         compress: true, //gzip compression?
         // historyApiFallback: true
         headers: { 'Access-Control-Allow-Origin': '*' },
-        // proxy: {
-        //     '/**': {
-        //       target: 'http://localhost:3000/',
-        //       secure: false,
-        //     },
-            // '/assets/**': {
-            //   target: 'http://localhost:3000/',
-            //   secure: false,
-            // },
-        //   },
+        proxy: {
+            '/**': {
+              target: 'http://localhost:3000/',
+              secure: false,
+            },
+            '/assets/**': {
+              target: 'http://localhost:3000/',
+              secure: false,
+            },
+          },
     },
     module: {
         rules: [

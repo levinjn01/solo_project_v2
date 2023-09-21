@@ -12,6 +12,7 @@ lunchController.getLunch = (req, res, next) => {
     db
     .query(text)
     .then(result => {
+        // console.log('we are in the .then query', result);
         res.locals.lunch = result.rows[random]; // this is an object
         next();
     })

@@ -593,7 +593,7 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/main.scss */ "./src/styles/main.scss");
-//this is the main file that webpack looks to to create the bundle
+//this is the main file (entry point) that webpack looks to to create the bundle
 
 // import fetch from 'node-fetch';
 // import sg from './assets/sg.png';
@@ -606,35 +606,25 @@ var address = document.getElementById('address');
 var hours = document.getElementById('hours');
 var button = document.querySelector('button');
 
-// const getRestaurantwhenClicked = async () => {
-// await fetch('http://localhost:8080/getlunch', {
-//     method: 'GET',
-//     mode: 'no-cors'
-// })
+// button.onclick = async function() {
+//     await fetch('http://localhost:8080/getlunch', {
+//         method: 'GET',
+//         mode: 'no-cors'
+//     })
 //     // .then(response => response.json())
 //     .then(data => console.log(data))
-//     .catch(err => console.log(err))
+//     .catch(err => console.log('error at onclick: ', err))
 // }
 
-function fetcher() {
-  console.log('fetcher is running');
-  fetch('http://localhost:8080/getlunch', {
-    method: 'GET',
-    // accept: '*/*',
-    mode: 'no-cors'
-  }).then(function (data) {
-    return data.json();
-  }).then(function (data) {
-    return console.log(data);
-  })["catch"](function (err) {
-    return console.log('this is the error', err);
-  });
-}
-fetcher();
-// console.log(response);
-// button.onclick = getRestaurantwhenClicked;
+var fetcher = fetch('http://localhost:3000/getlunch').then(function (response) {
+  return response.json();
+}).then(function (data) {
+  return console.log(data);
+})["catch"](function (err) {
+  return console.log('this is the error:', err);
+});
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=bundle0862ea458a3516e98e88.js.map
+//# sourceMappingURL=bundle3e86de8d55956d400845.js.map

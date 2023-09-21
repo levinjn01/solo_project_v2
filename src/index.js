@@ -17,7 +17,21 @@ button.onclick = async function() {
         method: 'GET',
         mode: 'no-cors'
     })
-    // .then(response => response.json())
-    .then(data => console.log(data))
+    .then(response => response.json())
+    .then(data => {
+        name.innerText = data.name;
+        address.innerText = data.address;
+        hours.innerText = data.hours_and_days;
+    })
     .catch(err => console.log('error at onclick: ', err))
 }
+
+// const fetcher = () => fetch('/getlunch', {
+//     method: 'GET',
+//     mode: 'no-cors'
+// })
+//     .then(response => response.json())
+//     .then(data => console.log(data))
+//     .catch(err => console.log('this is the error:', err))
+
+// fetcher();
