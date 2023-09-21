@@ -6,17 +6,31 @@
     <title>Healthy Lunch</title>
   </head>
   <body>
+    <div id="contents"></div>
     <header>
-      <h1>Healthy Lunch</h1>
-      <h3>A resource for Codesmith residents</h3>
+      <h1 class="animate-character">Healthy Lunch</h1>
+      <h3>A resource for Codesmith residents!</h3>
     </header>
-      <section>
+    <div id="boxes">
+      <section id="lunchbox">
         <hr>
-        <p>Restaurant Name:</p><span id="name"></span>
-        <p>Address</p><span id="address"></span>
-        <p>Hours:</p><span id="hours"></span>
+        <p id="name">Restaurant Name:</p>
+        <p id="address">Address</p>
+        <p id="hours">Hours:</p>
         <hr>
-        <button>Where's lunch?</button>
+        <button id="wheresLunch">Where's lunch?</button>
       </section>
-      <img id="sweetgreen">
+      <section id="inputbox">
+        <hr>
+        <p id="addOrUpdate">Add or Update Restaurant Database</p>
+        <label id="newName">Name:</label>
+        <input id='updateName' type="text">
+        <label id="newAddress">Address:</label>
+        <input id='updateAddress' type="text">
+        <label id="newHours">Hours:</label>
+        <input id='updateHours' type="text">
+        <hr>
+        <button id="addUpdateButton">Add/Update</button>
+      </section>
+    </div>
   </body>

@@ -22,15 +22,18 @@ app.use(express.urlencoded({ extended: true }));
  * define route handlers
  */
 
-// app.get('/')
-
 app.get('/getlunch', lunchController.getLunch, (req, res) => {
-    console.log('you reached the getlunch server endpoint');
-    return res.status(200).json(res.locals.lunch);
+  // console.log('you reached the getlunch server endpoint');
+  return res.status(200).json(res.locals.lunch);
 });
 
+app.post('/addlunch', lunchController.addLunch, (req, res) => {
+  console.log('Inside server app.post');
+  return res.status(200).json('Successfully added lunch')
+})
+
 // catch-all route handler for any requests to an unknown route
-app.use((req, res) => res.status(404).send('This is not the page you\'re looking for...'));
+app.use((req, res) => res.status(404).send('Unknown route to lunch, try another...'));
 
 //global error handler
 app.use((err, req, res, next) => {

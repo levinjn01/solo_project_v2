@@ -4,19 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Healthy Lunch</title>
-  <script defer src="bundle3e86de8d55956d400845.js"></script></head>
+  <script defer src="bundle0d43d7cb945e4f364a17.js"></script></head>
   <body>
+    <div id="contents"></div>
     <header>
       <h1>Healthy Lunch</h1>
-      <h3>A resource for Codesmith residents</h3>
+      <h3>A resource for Codesmith residents!</h3>
     </header>
-      <section>
+    <div id="boxes">
+      <section id="lunchbox">
         <hr>
         <p id="name">Restaurant Name:</p>
-        <p id="address">Address:</p>
-        <p id="hours">Hours and Location:</p>
+        <p id="address">Address</p>
+        <p id="hours">Hours:</p>
         <hr>
-        <button>Where's lunch?</button>
+        <button id="wheresLunch">Where's lunch?</button>
       </section>
-      <img id="sweetgreen">
+      <section id="inputbox">
+        <hr>
+        <p id="addOrUpdate">Add or Update Restaurant Database:</p>
+        <label for="newName">Name:</label>
+        <input id='updateName' type="text" required=true>
+        <label for="newAddress">Address:</label>
+        <input id='updateAddress' type="text" required=true>
+        <label for="newHours">Hours:</label>
+        <input id='updateHours' type="text" required=true>
+        <hr>
+        <button id="addUpdateButton">Add/Update</button>
+      </section>
+    </div>
   </body>
